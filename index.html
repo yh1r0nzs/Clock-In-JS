@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+
+<body>
+    <main class="clock">
+        <div class="clock-face">
+            <div class="hand hand-hours"></div>
+            <div class="hand hand-minutes"></div>
+            <div class="hand hand-seconds"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+    <style>
+        html {
+            background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+            background-size: cover;
+            font-family: 'helvetica neue';
+            text-align: center;
+            font-size: 10px;
+        }
+
+        body {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .clock {
+            width: 30rem;
+            height: 30rem;
+            border: 10px solid white;
+            border-radius: 50%;
+            margin: 50px auto;
+            position: relative;
+            padding: 2rem;
+            box-shadow:
+                0 0 0 4px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 3px #EFEFEF,
+                inset 0 0 10px black,
+                0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-3px);
+            /* account for the height of the clock hands */
+
+        }
+
+        .hand {
+
+            background: black;
+
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+
+            transform-origin: 50% 100%;
+            transform: rotate(90deg);
+
+            transition: all 0.05s linear;
+        }
+
+        .hand-hours {
+            height: 100px;
+            width: 5px;
+        }
+
+        .hand-minutes {
+            height: 130px;
+            width: 4px;
+        }
+
+        .hand-seconds {
+            height: 150px;
+            width: 2px;
+            background: red;
+        }
+
+        /*
+        O que NÃO fazer
+
+Controlar tamanho no JS
+Usar scaleY() no lugar de height
+Misturar translate() com rotate() no mesmo transform
+
+Esses são atalhos que cobram juros.
+        */
+    </style>
+</body>
+
+</html>
